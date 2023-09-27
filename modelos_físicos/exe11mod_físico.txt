@@ -1,0 +1,28 @@
+CREATE TABLE Paciente 
+( 
+ data_primeira_consulta INT,  
+ endereço INT,  
+ telefone INT,  
+ nome INT PRIMARY KEY,  
+ data_nascimento INT,  
+ email INT,  
+ particular INT,  
+ qual_plano INT,  
+); 
+
+CREATE TABLE Consulta 
+( 
+ identificar_consulta INT,  
+ três_encaixes INT,  
+ ID INT PRIMARY KEY,  
+ data-futura_limite INT,  
+); 
+
+CREATE TABLE Rel 
+( 
+ ID INT PRIMARY KEY,  
+ nome INT PRIMARY KEY,  
+); 
+
+ALTER TABLE Rel ADD FOREIGN KEY(ID) REFERENCES Consulta (ID)
+ALTER TABLE Rel ADD FOREIGN KEY(nome) REFERENCES Paciente (nome)

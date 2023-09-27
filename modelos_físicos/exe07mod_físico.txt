@@ -1,0 +1,48 @@
+CREATE TABLE Jogador 
+( 
+ ID INT PRIMARY KEY,  
+ pontuação INT,  
+ nome INT,  
+); 
+
+CREATE TABLE Rodada 
+( 
+ acertou INT,  
+ pontuação INT,  
+ ID INT PRIMARY KEY,  
+ idJogador INT,  
+ idLetra_Errada INT,  
+); 
+
+CREATE TABLE Letra_Errada 
+( 
+ letra INT,  
+ ID INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Boneco 
+( 
+ parte INT,  
+ ID INT PRIMARY KEY,  
+ idLetra_Errada INT,  
+); 
+
+CREATE TABLE Tema 
+( 
+ nome INT,  
+ ID INT PRIMARY KEY,  
+ idRodada INT,  
+); 
+
+CREATE TABLE Palavra 
+( 
+ ID INT PRIMARY KEY,  
+ palavra INT,  
+ idTema INT,  
+); 
+
+ALTER TABLE Rodada ADD FOREIGN KEY(idJogador) REFERENCES Jogador (idJogador)
+ALTER TABLE Rodada ADD FOREIGN KEY(idLetra_Errada) REFERENCES Letra_Errada (idLetra_Errada)
+ALTER TABLE Boneco ADD FOREIGN KEY(idLetra_Errada) REFERENCES Letra_Errada (idLetra_Errada)
+ALTER TABLE Tema ADD FOREIGN KEY(idRodada) REFERENCES Rodada (idRodada)
+ALTER TABLE Palavra ADD FOREIGN KEY(idTema) REFERENCES Tema (idTema)

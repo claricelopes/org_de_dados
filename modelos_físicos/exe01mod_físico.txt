@@ -1,0 +1,24 @@
+CREATE TABLE Tarefa 
+( 
+ num_detalhamento INT PRIMARY KEY,  
+ nome INT,  
+ data_limite INT,  
+ percentual_concluido INT,  
+ cod_prioridade INT,  
+); 
+
+CREATE TABLE Execução 
+( 
+ percentual INT PRIMARY KEY,  
+ descrição INT,  
+ data_execução INT,  
+); 
+
+CREATE TABLE Rel 
+( 
+ percentual INT PRIMARY KEY,  
+ num_detalhamento INT PRIMARY KEY,  
+); 
+
+ALTER TABLE Rel ADD FOREIGN KEY(percentual) REFERENCES Execução (percentual)
+ALTER TABLE Rel ADD FOREIGN KEY(num_detalhamento) REFERENCES Tarefa (num_detalhamento)

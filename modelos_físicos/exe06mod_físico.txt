@@ -1,0 +1,32 @@
+CREATE TABLE Usuário 
+( 
+ senha INT,  
+ seção INT,  
+ email INT,  
+ nome INT,  
+ data_inicial INT,  
+ ID INT PRIMARY KEY,  
+ idResumo_Oferta INT,  
+); 
+
+CREATE TABLE Resumo_Oferta 
+( 
+ data_resultado INT,  
+ tipo_anuncio INT,  
+ resultado_anuncio INT,  
+ ID INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Entity 
+( 
+ tipo_anuncio INT,  
+ texto INT,  
+ imagem INT,  
+ data INT,  
+ data_final INT,  
+ ID INT PRIMARY KEY,  
+ idUsuário INT,  
+); 
+
+ALTER TABLE Usuário ADD FOREIGN KEY(idResumo_Oferta) REFERENCES Resumo_Oferta (idResumo_Oferta)
+ALTER TABLE Entity ADD FOREIGN KEY(idUsuário) REFERENCES Usuário (idUsuário)

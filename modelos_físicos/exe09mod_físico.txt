@@ -1,0 +1,40 @@
+CREATE TABLE Revista 
+( 
+ num_edição INT,  
+ ano INT,  
+ caixa INT PRIMARY KEY,  
+ coleção INT,  
+); 
+
+CREATE TABLE Empréstimo 
+( 
+ data_devolução INT,  
+ data_empréstimo INT,  
+ amigo INT PRIMARY KEY,  
+ qual_revista INT,  
+); 
+
+CREATE TABLE Amigo 
+( 
+ onde INT,  
+ nome INT PRIMARY KEY,  
+ nome_mãe INT,  
+ telefone INT,  
+); 
+
+CREATE TABLE Rel 
+( 
+ amigo INT PRIMARY KEY,  
+ caixa INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Rel1 
+( 
+ nome INT PRIMARY KEY,  
+ amigo INT,  
+); 
+
+ALTER TABLE Rel ADD FOREIGN KEY(amigo) REFERENCES Empréstimo (amigo)
+ALTER TABLE Rel ADD FOREIGN KEY(caixa) REFERENCES Revista (caixa)
+ALTER TABLE Rel1 ADD FOREIGN KEY(nome) REFERENCES Amigo (nome)
+ALTER TABLE Rel1 ADD FOREIGN KEY(amigo) REFERENCES Empréstimo (amigo)

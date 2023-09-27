@@ -1,0 +1,55 @@
+CREATE TABLE Dono 
+( 
+ valor_hora INT,  
+ telefone INT,  
+ nome_prof INT,  
+ curso INT,  
+ data_inicial INT,  
+ data_final INT,  
+ hora_inicial INT,  
+ hora_final INT,  
+ ID INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Aluno 
+( 
+ telefone INT,  
+ endereço INT,  
+ data_nascimento INT,  
+ CPF INT,  
+ ID INT PRIMARY KEY,  
+ nome INT,  
+ identificador INT,  
+); 
+
+CREATE TABLE Matrícula 
+( 
+ ID INT PRIMARY KEY,  
+ turma INT,  
+ data_matricula INT,  
+ valor INT,  
+ aluno INT,  
+ idAluno INT,  
+); 
+
+CREATE TABLE Curso 
+( 
+ conteudo INT,  
+ valor_curso INT,  
+ carga_horaria INT,  
+ ID INT PRIMARY KEY,  
+ idDono INT,  
+ idMatrícula INT,  
+); 
+
+CREATE TABLE Rel 
+( 
+ ID INT PRIMARY KEY,  
+ ID INT PRIMARY KEY,  
+); 
+
+ALTER TABLE Matrícula ADD FOREIGN KEY(idAluno) REFERENCES Aluno (idAluno)
+ALTER TABLE Curso ADD FOREIGN KEY(idDono) REFERENCES Dono (idDono)
+ALTER TABLE Curso ADD FOREIGN KEY(idMatrícula) REFERENCES Matrícula (idMatrícula)
+ALTER TABLE Rel ADD FOREIGN KEY(ID) REFERENCES Curso (ID)
+ALTER TABLE Rel ADD FOREIGN KEY(ID) REFERENCES Aluno (ID)

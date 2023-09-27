@@ -1,0 +1,26 @@
+CREATE TABLE Ligação 
+( 
+ dados_ligação INT PRIMARY KEY,  
+ valor_pago INT,  
+ data INT,  
+ hora INT,  
+ número INT,  
+ minimo_gasto INT,  
+ número_pulsos INT,  
+ número_tel INT,  
+); 
+
+CREATE TABLE Agenda_telefonica 
+( 
+ número_tel INT PRIMARY KEY,  
+ nome_contato INT,  
+); 
+
+CREATE TABLE Rel 
+( 
+ número_tel INT PRIMARY KEY,  
+ dados_ligação INT,  
+); 
+
+ALTER TABLE Rel ADD FOREIGN KEY(número_tel) REFERENCES Agenda_telefonica (número_tel)
+ALTER TABLE Rel ADD FOREIGN KEY(dados_ligação) REFERENCES Ligação (dados_ligação)

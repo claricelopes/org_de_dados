@@ -1,0 +1,63 @@
+CREATE TABLE Disciplina 
+( 
+ ID INT PRIMARY KEY,  
+ nome_disciplina INT,  
+ idMateria INT,  
+); 
+
+CREATE TABLE Materia 
+( 
+ disco INT,  
+ nome_materia INT,  
+ ID INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Questão 
+( 
+ bimestre INT,  
+ texto_questões INT,  
+ ID INT PRIMARY KEY,  
+ ID_matricula INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Teste 
+( 
+ número_questão INT,  
+ ID INT PRIMARY KEY,  
+ ID_disco INT PRIMARY KEY,  
+ idDisciplina INT,  
+); 
+
+CREATE TABLE Gabarito 
+( 
+ ID INT PRIMARY KEY,  
+ ID_questão INT PRIMARY KEY,  
+ resposta INT,  
+); 
+
+CREATE TABLE Rel 
+( 
+ ID INT PRIMARY KEY,  
+ ID INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Rel1 
+( 
+ ID INT PRIMARY KEY,  
+ ID INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Rel11 
+( 
+ ID INT PRIMARY KEY,  
+ ID INT PRIMARY KEY,  
+); 
+
+ALTER TABLE Disciplina ADD FOREIGN KEY(idMateria) REFERENCES Materia (idMateria)
+ALTER TABLE Teste ADD FOREIGN KEY(idDisciplina) REFERENCES Disciplina (idDisciplina)
+ALTER TABLE Rel ADD FOREIGN KEY(ID) REFERENCES Questão (ID)
+ALTER TABLE Rel ADD FOREIGN KEY(ID) REFERENCES Materia (ID)
+ALTER TABLE Rel1 ADD FOREIGN KEY(ID) REFERENCES Teste (ID)
+ALTER TABLE Rel1 ADD FOREIGN KEY(ID) REFERENCES Questão (ID)
+ALTER TABLE Rel11 ADD FOREIGN KEY(ID) REFERENCES Gabarito (ID)
+ALTER TABLE Rel11 ADD FOREIGN KEY(ID) REFERENCES Questão (ID)

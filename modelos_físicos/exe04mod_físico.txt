@@ -1,0 +1,38 @@
+CREATE TABLE Cliente 
+( 
+ Telefone INT,  
+ ID INT PRIMARY KEY,  
+ Nome INT,  
+); 
+
+CREATE TABLE Aluguel 
+( 
+ dados_festa INT,  
+ hora_inicial INT,  
+ hora_final INT,  
+ tema INT,  
+ clientes_id INT PRIMARY KEY,  
+ ID INT,  
+ idCliente INT,  
+ idTema INT,  
+); 
+
+CREATE TABLE Temas 
+( 
+ cor_toalha INT,  
+ valor_aluguel INT,  
+ nome_tema INT,  
+ ID INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Tema 
+( 
+ ID INT PRIMARY KEY,  
+ id_temas INT,  
+ nome INT,  
+ idTemas INT,  
+); 
+
+ALTER TABLE Aluguel ADD FOREIGN KEY(idCliente) REFERENCES Cliente (idCliente)
+ALTER TABLE Aluguel ADD FOREIGN KEY(idTema) REFERENCES Tema (idTema)
+ALTER TABLE Tema ADD FOREIGN KEY(idTemas) REFERENCES Temas (idTemas)

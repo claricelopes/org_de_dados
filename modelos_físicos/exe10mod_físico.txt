@@ -1,0 +1,27 @@
+CREATE TABLE Apartamento 
+( 
+ tel_propietário INT,  
+ num_porta INT PRIMARY KEY,  
+ num_quartos INT,  
+ tipo_ocupação INT,  
+ nome_propietário INT,  
+); 
+
+CREATE TABLE Condomínio 
+( 
+ valor_pago INT,  
+ despesas_específicas INT,  
+ referências INT,  
+ despesas_gerais INT,  
+ data_pagamento INT,  
+ ID INT PRIMARY KEY,  
+); 
+
+CREATE TABLE Rel 
+( 
+ ID INT PRIMARY KEY,  
+ num_porta INT PRIMARY KEY,  
+); 
+
+ALTER TABLE Rel ADD FOREIGN KEY(ID) REFERENCES Condomínio (ID)
+ALTER TABLE Rel ADD FOREIGN KEY(num_porta) REFERENCES Apartamento (num_porta)
