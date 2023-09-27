@@ -1,0 +1,21 @@
+CREATE TABLE Cartão 
+( 
+ cod_cartão INT PRIMARY KEY,  
+ tipo_jogo INT,  
+); 
+
+CREATE TABLE Resultado 
+( 
+ cod_cartão INT PRIMARY KEY,  
+ num_acertados INT,  
+ valor_prêmio INT,  
+); 
+
+CREATE TABLE Rel 
+( 
+ cod_cartão INT PRIMARY KEY,  
+ cod_cartão INT PRIMARY KEY,  
+); 
+
+ALTER TABLE Rel ADD FOREIGN KEY(cod_cartão) REFERENCES Cartão (cod_cartão)
+ALTER TABLE Rel ADD FOREIGN KEY(cod_cartão) REFERENCES Resultado (cod_cartão)
